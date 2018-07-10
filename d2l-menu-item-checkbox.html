@@ -11,39 +11,39 @@ Polymer-based web component for checkbox menu items.
 -->
 
 <dom-module id="d2l-menu-item-checkbox">
-	<template>
-		<style include="d2l-menu-item-selectable-styles"></style>
-		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
-		<span>[[text]]</span>
-	</template>
-	<script>
-		'use strict';
-		Polymer({
-			is: 'd2l-menu-item-checkbox',
+    <template>
+        <style include="d2l-menu-item-selectable-styles"></style>
+        <d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
+        <span>[[text]]</span>
+    </template>
+    <script>
+        'use strict';
+        Polymer({
+            is: 'd2l-menu-item-checkbox',
 
-			behaviors: [
-				D2L.PolymerBehaviors.MenuItemSelectableBehavior
-			],
+            behaviors: [
+                D2L.PolymerBehaviors.MenuItemSelectableBehavior
+            ],
 
-			hostAttributes: {
-				'role': 'menuitemcheckbox'
-			},
+            hostAttributes: {
+                'role': 'menuitemcheckbox'
+            },
 
-			attached: function() {
-				Polymer.RenderStatus.afterNextRender(this, function() {
-					this.listen(this, 'd2l-menu-item-select', '_onSelect');
-				}.bind(this));
-			},
+            attached: function() {
+                Polymer.RenderStatus.afterNextRender(this, function() {
+                    this.listen(this, 'd2l-menu-item-select', '_onSelect');
+                }.bind(this));
+            },
 
-			detached: function() {
-				this.unlisten(this, 'd2l-menu-item-select', '_onSelect');
-			},
+            detached: function() {
+                this.unlisten(this, 'd2l-menu-item-select', '_onSelect');
+            },
 
-			_onSelect: function(e) {
-				this.set('selected', !this.selected);
-				this.__onSelect(e);
-			}
+            _onSelect: function(e) {
+                this.set('selected', !this.selected);
+                this.__onSelect(e);
+            }
 
-		});
-	</script>
+        });
+    </script>
 </dom-module>

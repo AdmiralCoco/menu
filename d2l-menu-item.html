@@ -11,52 +11,52 @@ Polymer-based web component for standard menu items.
 
 <dom-module id="d2l-menu-item">
 
-	<template>
-		<style include="d2l-menu-item-styles">
+    <template>
+        <style include="d2l-menu-item-styles">
 
-			:host {
-				display: flex;
-				padding: 0.75rem 1rem;
-			}
+            :host {
+                display: flex;
+                padding: 0.75rem 1rem;
+            }
 
-			:host > span {
-				flex: auto;
-				line-height: 1rem;
-				overflow-x: hidden;
-				overflow-y: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
+            :host > span {
+                flex: auto;
+                line-height: 1rem;
+                overflow-x: hidden;
+                overflow-y: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
 
-			:host > d2l-icon {
-				flex: none;
-				margin-top: 0.1rem;
-			}
+            :host > d2l-icon {
+                flex: none;
+                margin-top: 0.1rem;
+            }
 
-		</style>
-		<span>[[text]]</span>
-		<slot></slot>
-	</template>
+        </style>
+        <span>[[text]]</span>
+        <slot></slot>
+    </template>
 
-	<script>
-		Polymer({
-			is: 'd2l-menu-item',
+    <script>
+        Polymer({
+            is: 'd2l-menu-item',
 
-			behaviors: [
-				D2L.PolymerBehaviors.MenuItemBehavior
-			],
+            behaviors: [
+                D2L.PolymerBehaviors.MenuItemBehavior
+            ],
 
-			_initialize: function() {
-				if (this.hasChildView && !this.$$('d2l-icon')) {
-					var icon = document.createElement('d2l-icon');
-					Polymer.dom(icon).setAttribute('icon', 'd2l-tier1:chevron-right');
-					Polymer.dom(this.root).insertBefore(
-						icon, this.$$('slot')
-					);
-				}
-			}
+            _initialize: function() {
+                if (this.hasChildView && !this.$$('d2l-icon')) {
+                    var icon = document.createElement('d2l-icon');
+                    Polymer.dom(icon).setAttribute('icon', 'd2l-tier1:chevron-right');
+                    Polymer.dom(this.root).insertBefore(
+                        icon, this.$$('slot')
+                    );
+                }
+            }
 
-		});
-	</script>
+        });
+    </script>
 
 </dom-module>
