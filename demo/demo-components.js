@@ -89,7 +89,6 @@ Polymer({
 
 	_handleHide: function(e) {
 		e.stopPropagation();
-		console.log('here'); /* eslint-disable-line no-console */
 		this.hide();
 	}
 });

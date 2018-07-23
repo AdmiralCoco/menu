@@ -13,8 +13,7 @@
 		<script type="module" src="../d2l-menu-item-checkbox.js"></script>
 	</head>
 	<body>
-
-		<test-fixture id="menufixture">
+		<test-fixture id="basic">
 			<template>
 				<d2l-menu id="d2lmenu">
 					<d2l-menu-item-checkbox id="check1" value="1"></d2l-menu-item-checkbox>
@@ -35,7 +34,7 @@ describe('<d2l-menu-item-checkbox>', function() {
 	var menu, checkbox;
 
 	beforeEach(function(done) {
-		menu = fixture('menufixture');
+		menu = fixture('basic');
 		checkbox = menu.querySelector('#check1');
 		afterNextRender(menu, done);
 	});
@@ -46,7 +45,7 @@ describe('<d2l-menu-item-checkbox>', function() {
 
 	it('swallows the "select" event', function(done) {
 		var fired = false;
-		menu.addEventListener('d2l-menu-item-select', function(e) {
+		menu.addEventListener('d2l-menu-item-select', function() {
 			fired = true;
 		});
 		setTimeout(function() {
@@ -66,14 +65,14 @@ describe('<d2l-menu-item-checkbox>', function() {
 	});
 
 	it('fires d2l-menu-item-change event when enter key pressed on item', function(done) {
-		checkbox.addEventListener('d2l-menu-item-change', function(e) {
+		checkbox.addEventListener('d2l-menu-item-change', function() {
 			done();
 		});
 		MockInteractions.keyDownOn(checkbox, 13);
 	});
 
 	it('fires d2l-menu-item-change event when space key pressed on item', function(done) {
-		checkbox.addEventListener('d2l-menu-item-change', function(e) {
+		checkbox.addEventListener('d2l-menu-item-change', function() {
 			done();
 		});
 		MockInteractions.keyDownOn(checkbox, 32);
@@ -82,7 +81,7 @@ describe('<d2l-menu-item-checkbox>', function() {
 	it('does not fire d2l-menu-item-change event for disabled item', function(done) {
 		checkbox = menu.querySelector('#check3');
 		var fired = false;
-		checkbox.addEventListener('d2l-menu-item-change', function(e) {
+		checkbox.addEventListener('d2l-menu-item-change', function() {
 			fired = true;
 		});
 		setTimeout(function() {
@@ -108,7 +107,7 @@ describe('<d2l-menu-item-checkbox>', function() {
 	});
 
 	it('does not affect other checkboxes in the menu when selected', function(done) {
-		checkbox.addEventListener('d2l-menu-item-change', function(e) {
+		checkbox.addEventListener('d2l-menu-item-change', function() {
 			expect(checkbox.selected).to.be.true;
 			expect(menu.querySelector('#check2').selected).not.to.be.true;
 			done();

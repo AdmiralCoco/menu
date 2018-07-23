@@ -284,8 +284,8 @@ Polymer({
 		}
 
 		if (e.keyCode === this._keyCodes.DOWN || e.keyCode === this._keyCodes.UP
-		  || e.keyCode === this._keyCodes.SPACE || e.keyCode === this._keyCodes.ENTER
-		  || e.keyCode === this._keyCodes.ESCAPE) {
+			|| e.keyCode === this._keyCodes.SPACE || e.keyCode === this._keyCodes.ENTER
+			|| e.keyCode === this._keyCodes.ESCAPE) {
 			return;
 		}
 

@@ -14,7 +14,13 @@ Polymer-based web component for radio menu items.
 */
 Polymer({
 	_template: html`
-		<style include="d2l-menu-item-selectable-styles"></style>
+		<style include="d2l-menu-item-selectable-styles">
+			/*
+			 * https://github.com/Polymer/tools/issues/408
+			 * Empty style blocks break linter.
+			 */
+			:host {}
+		</style>
 		<d2l-icon icon="d2l-tier1:check" aria-hidden="true"></d2l-icon>
 		<span>[[text]]</span>
 `,

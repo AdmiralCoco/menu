@@ -13,7 +13,6 @@
 		<script type="module" src="../d2l-menu-item.js"></script>
 	</head>
 	<body>
-
 		<test-fixture id="menu">
 			<template>
 				<d2l-menu id="menu">
@@ -78,7 +77,7 @@ describe('<d2l-menu-item>', function() {
 
 	it('does not fire select event for disabled item', function(done) {
 		var fired = false;
-		menu.addEventListener('d2l-menu-item-select', function(e) {
+		menu.addEventListener('d2l-menu-item-select', function() {
 			fired = true;
 		});
 		setTimeout(function() {

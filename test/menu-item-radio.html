@@ -13,8 +13,7 @@
 		<script type="module" src="../d2l-menu-item-radio.js"></script>
 	</head>
 	<body>
-
-		<test-fixture id="menufixture">
+		<test-fixture id="basic">
 			<template>
 				<d2l-menu id="d2lmenu">
 					<d2l-menu-item-radio id="radio1" value="1"></d2l-menu-item-radio>
@@ -35,7 +34,7 @@ describe('<d2l-menu-item-radio>', function() {
 	var menu, radio;
 
 	beforeEach(function(done) {
-		menu = fixture('menufixture');
+		menu = fixture('basic');
 		radio = menu.querySelector('#radio1');
 		afterNextRender(menu, done);
 	});
@@ -46,7 +45,7 @@ describe('<d2l-menu-item-radio>', function() {
 
 	it('swallows the "select" event', function(done) {
 		var fired = false;
-		menu.addEventListener('d2l-menu-item-select', function(e) {
+		menu.addEventListener('d2l-menu-item-select', function() {
 			fired = true;
 		});
 		setTimeout(function() {
@@ -66,14 +65,14 @@ describe('<d2l-menu-item-radio>', function() {
 	});
 
 	it('fires d2l-menu-item-change event when enter key pressed on item', function(done) {
-		radio.addEventListener('d2l-menu-item-change', function(e) {
+		radio.addEventListener('d2l-menu-item-change', function() {
 			done();
 		});
 		MockInteractions.keyDownOn(radio, 13);
 	});
 
 	it('fires d2l-menu-item-change event when space key pressed on item', function(done) {
-		radio.addEventListener('d2l-menu-item-change', function(e) {
+		radio.addEventListener('d2l-menu-item-change', function() {
 			done();
 		});
 		MockInteractions.keyDownOn(radio, 32);
@@ -82,7 +81,7 @@ describe('<d2l-menu-item-radio>', function() {
 	it('does not fire d2l-menu-item-change event for disabled item', function(done) {
 		radio = menu.querySelector('#radio3');
 		var fired = false;
-		radio.addEventListener('d2l-menu-item-change', function(e) {
+		radio.addEventListener('d2l-menu-item-change', function() {
 			fired = true;
 		});
 		setTimeout(function() {
@@ -110,7 +109,7 @@ describe('<d2l-menu-item-radio>', function() {
 	it('deselects other radio options in the menu when selected', function(done) {
 		menu.querySelector('#radio2').click();
 
-		radio.addEventListener('d2l-menu-item-change', function(e) {
+		radio.addEventListener('d2l-menu-item-change', function() {
 			expect(radio.selected).to.be.true;
 			expect(menu.querySelector('#radio2').selected).to.be.false;
 			done();
