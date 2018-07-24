@@ -57,14 +57,6 @@ document.body.appendChild($_documentContainer.content);
 
 		</div>
 		<script type="module">
-import '../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '../../@polymer/iron-demo-helpers/demo-snippet.js';
-import '../../d2l-typography/d2l-typography.js';
-import '../d2l-menu.js';
-import '../d2l-menu-item-link.js';
-import './demo-components.js';
-import { PolymerElement } from '../../@polymer/polymer/polymer-element.js';
-
 var menuItems = [
 	{text: 'Introduction'},
 	{text: 'Searching the Heavens'},
@@ -80,12 +72,7 @@ var menuItems = [
 ];
 
 window.addEventListener('WebComponentsReady', function() {
-	var menu;
-	if (PolymerElement) {
-		menu = document.getElementById('repeat_template_v2');
-	} else {
-		menu = document.getElementById('repeat_template_v1');
-	}
+	var menu = document.getElementById('repeat_template_v2');
 	menu.items = menuItems;
 
 	// eslint-disable-next-line no-console
