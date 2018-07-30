@@ -42,6 +42,6 @@
     "d2l-colors": "git+https://github.com/BrightspaceUI/colors.git#polymer-3",
     "d2l-hierarchical-view": "git+https://github.com/BrightspaceUI/hierarchical-view.git#polymer-3",
     "d2l-icons": "git+https://github.com/BrightspaceUI/icons.git#polymer-3",
-    "d2l-localize-behavior": "git+https://github.com/Brightspace/localize-behavior.git#polymer-3"
+    "d2l-localize-behavior": "git+https://github.com/BrightspaceUI/localize-behavior.git#polymer-3"
   }
 }
